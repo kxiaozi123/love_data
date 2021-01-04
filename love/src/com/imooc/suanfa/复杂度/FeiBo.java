@@ -7,7 +7,7 @@ package com.imooc.suanfa.复杂度;
  * something interesting
  * 我是一个斐波那契程序员 因为我每天都在改昨天和前天的bug
  */
-public class 斐波那契数列 {
+public class FeiBo {
     //时间复杂度O(2^n)
     public static int fibo(int n)
     {
@@ -27,6 +27,17 @@ public class 斐波那契数列 {
         }
         return second;
     }
+    public static int fibo3(int n)
+    {
+        if(n<=1) return n;
+        int first=0;
+        int second=1;
+       while (n-->1){
+           second+=first;
+           first=second-first;
+        }
+        return second;
+    }
     public static void main(String[] args) {
 //        System.out.println(fibo(0));
 //        System.out.println(fibo(1));
@@ -38,6 +49,9 @@ public class 斐波那契数列 {
         });
         Times.test("fibo2", () -> {
             System.out.println(fibo2(30));
+        });
+        Times.test("fibo3", () -> {
+            System.out.println(fibo3(30));
         });
 
 
